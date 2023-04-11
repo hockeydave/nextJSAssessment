@@ -11,7 +11,7 @@ export async function all() {
 }
 
 export async function create(data: any) {
-    const allData = await _openFile();
+    let allData = await _openFile();
     data.id = allData.length + 1;
     data.registrationId = await vehicleRegistrationService.registerVehicle(data);
     await _writeFile(allData.concat(data));
@@ -40,7 +40,7 @@ async function _openFile() {
     if (rawData.length > 0) {
         return JSON.parse(rawData.toString());
     } else {
-        return "[{}]"
+        return [];
     }
 }
 
