@@ -1,7 +1,7 @@
 let NEXT_ID: number = 1;
 
 class Database {
-    private objects: { [id: number]: any };
+    private readonly objects: { [id: number]: any };
     private static _instance = new Database();
 
     constructor() {

@@ -31,7 +31,7 @@ const getMileageRating = (mileage: number) => {
 const vehicleRow = (vehicle: any, i: number) => {
   return (
     <tr key={`vehicle-${i}`}>
-      <Td>{vehicle.type}</Td>
+      <Td>{vehicle.vehicleType}</Td>
       <Td>{vehicle.nickname}</Td>
       <Td>{getMileageRating(vehicle.mileage)}</Td>
       <Td>{vehicle.registrationId}</Td>

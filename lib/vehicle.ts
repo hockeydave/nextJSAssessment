@@ -1,13 +1,12 @@
-import db from './database';
 import * as fileDatabase from './fileDatabase';
-import vehicleRegistrationService from './vehicleRegistrationService';
+
 
 export enum VEHICLE_TYPE {
   SEDAN = 'Sedan',
   COUPE = 'Coupe',
   MINI_VAN = 'Mini-Van',
-  MOTORCYCLE = 'Motorcyle'
-};
+  MOTORCYCLE = 'Motorcycle'
+}
 
 export interface VehicleProps {
   id?: string;
@@ -16,7 +15,7 @@ export interface VehicleProps {
   wheels: number;
   engineStatus: string;
   seatStatus: string;
-  type: VEHICLE_TYPE;
+  vehicleType: VEHICLE_TYPE;
   registrationId: string;
 }
 
