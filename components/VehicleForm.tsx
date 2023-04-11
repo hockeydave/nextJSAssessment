@@ -35,6 +35,9 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
     // data the user may have entered. The best solution is to track if the field is dirty
     // and change to the default if the field isn't dirty. This is trivial with a
     // form library like react-hook-form https://react-hook-form.com/
+    // if(e.currentTarget.value === VEHICLE_TYPE.MOTORCYCLE) {
+    //   formState.wheels = 2;
+    // }
   }
 
   const handleSubmit = async (e: any) => {
@@ -73,11 +76,19 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
           <label htmlFor="mileage">Mileage</label>
           <input name="mileage" type="number" id="mileage" onChange={handleChange} value={formState.mileage} />
         </div>
+        { formState.vehicleType !== VEHICLE_TYPE.MOTORCYCLE &&
         <div>
           <label htmlFor="wheels">Wheels</label>
           <input name="wheels" type="number" id="wheels" onChange={handleChange} value={formState.wheels} />
         </div>
-        { formState.vehicleType !== "Motorcycle" &&
+        }
+        { formState.vehicleType === VEHICLE_TYPE.MOTORCYCLE &&
+            <div>
+              <label htmlFor="wheels">Wheels</label>
+              <input name="wheels" type="number" id="wheels" onChange={handleChange} value={2} />
+            </div>
+        }
+        { formState.vehicleType !== VEHICLE_TYPE.MOTORCYCLE &&
           <div>
             <label htmlFor="doors">Doors</label>
             <input name="doors" type="number" id="doors" onChange={handleChange} value={formState.doors} />

@@ -61,7 +61,7 @@ const VehicleList = ({ vehicles }: VehicleListProps) => {
           </tr>
         </thead>
         <tbody>
-          {vehicles.map(vehicleRow)}
+          {vehicles && vehicles.map && vehicles.map(vehicleRow)}
         </tbody>
       </Table>
     </main>
