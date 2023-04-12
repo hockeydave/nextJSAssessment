@@ -12,21 +12,25 @@ Notes if using Docker (options 1 or 2):
 
 ### Using Docker + VSCode + Remote Container extension
 
-Open the root of this project in VS Code. If it is not already installed, you will be prompted to install the [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+Open the root of this project in VS (MS Visual Studio) Code. If it is not already installed, you will be prompted to install the [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 
 Once installed, VS Code will recognize a dev container configuration (in `./.devcontainer`) and ask to open the project in a container (which you should do!):
 
 ![VS Code reopen in container prompt](./README-assets/vs-code-open-in-container-prompt.png)
 
-You can also open the command pallete (`CMD/CTRL + SHIFT + P`) and select `Remote-Containers: Reopen in Container`
+You can also open the command pallet (`CMD/CTRL + SHIFT + P`) and select `Remote-Containers: Reopen in Container`
 
 ![VS Code reopen in container command](./README-assets/vs-code-reopen-incontainer.png)
 
 After opening the project in a container you can access a shell inside the running Docker container (with `node` and `yarn` installed) using the built-in Terminal.
 
+#### Install Storybook for testing
+    npx storybook@latest init
+    npm run storybook
+
 #### Install npm modules
 
-Open a new Terminal in VS Code and run:
+Open a new Terminal window in VS Code and run:
 
     yarn install
 
@@ -82,6 +86,6 @@ You should now be able to access the Next server at `http://localhost:3001`.
 
 ## Notes 
 
-- This project was boostrapped using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). See [CREATE_NEXT_APP_README.md](CREATE_NEXT_APP_README.md) for more info on some of the scaffolding.
+- This project was bootstrapped using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). See [CREATE_NEXT_APP_README.md](CREATE_NEXT_APP_README.md) for more info on some scaffolding.
 - This is meant to (hopefully) keep the amount of set up and configuration needed to start on the assignment to a minimum. Feel free to add any gems, npm packages or other tools that will be helpful!
 - We are always improving our projects, so please share any feedback or suggestions on your experience.
