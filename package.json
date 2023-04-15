@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "lint": "next lint",
-    "dev": "next dev",
+    "dev": "nodemon ./server.js --ignore *.json",
     "build": "next build",
-    "start": "next start",
+    "start": "node ./server.js  --ignore *.json",
     "test:e2e": "playwright test"
   },
   "dependencies": {

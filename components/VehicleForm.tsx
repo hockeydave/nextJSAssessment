@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 import {useRef, useState} from "react";
-import {VEHICLE_TYPE} from "../lib/vehicle";
+import {VEHICLE_TYPE, ENGINE_STATUS, SEAT_STATUS} from "../lib/vehicle";
 
 
 
@@ -46,7 +46,7 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
 
     const body = {
       ...formState,
-      vehicleType: selectedType
+//      vehicleType: selectedType
     };
 
     await fetch('/api/vehicles/new', {
@@ -102,18 +102,18 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
         <div>
           <label htmlFor="engineStatus">Engine Status</label>
           <select id="engineStatus" name="engineStatus" onChange={handleChange} value={formState.engineStatus}>
-            <option value='Works'>Works</option>
-            <option value='Fixable'>Fixable</option>
-            <option value='Junk'>Junk</option>
+            <option value={ENGINE_STATUS.WORKS}>{ENGINE_STATUS.WORKS}</option>
+            <option value={ENGINE_STATUS.FIXABLE}>{ENGINE_STATUS.FIXABLE}</option>
+            <option value={ENGINE_STATUS.JUNK}>{ENGINE_STATUS.JUNK}</option>
           </select>
         </div>
         { formState.vehicleType === VEHICLE_TYPE.MOTORCYCLE &&
           <div>
             <label htmlFor="seatStatus">Seat Status</label>
             <select id="seatStatus" name="seatStatus" onChange={handleChange} value={formState.seatStatus}>
-              <option value='Works'>Works</option>
-              <option value='Fixable'>Fixable</option>
-              <option value='Junk'>Junk</option>
+              <option value={SEAT_STATUS.WORKS}>{SEAT_STATUS.WORKS}</option>
+              <option value={SEAT_STATUS.FIXABLE}>{SEAT_STATUS.FIXABLE}</option>
+              <option value={SEAT_STATUS.JUNK}>{SEAT_STATUS.JUNK}</option>
             </select>
           </div>
         }
