@@ -46,7 +46,7 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
 
     const body = {
       ...formState,
-      type: selectedType
+      vehicleType: selectedType
     };
 
     await fetch('/api/vehicles/new', {

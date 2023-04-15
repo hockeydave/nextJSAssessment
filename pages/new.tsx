@@ -3,7 +3,7 @@ import VehicleForm from '../components/VehicleForm'
 import { VEHICLE_TYPE } from '../lib/vehicle';
 
 const defaults = {
-  type: VEHICLE_TYPE.COUPE,
+  vehicleType: VEHICLE_TYPE.COUPE,
   nickname: '',
   mileage: 0,
   wheels: 4,

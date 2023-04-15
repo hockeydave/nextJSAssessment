@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
 const EditVehicle: NextPage = ({ vehicle }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <main>
-      Change a vehicle here
+      <h3>Change a vehicle here</h3>
       <VehicleForm defaults={vehicle} />
     </main>
   )
