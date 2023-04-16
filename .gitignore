@@ -115,6 +115,6 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 /test-results/
 /tests-examples/*
-/tests/example.spec.ts
+
 /playwright-report/
 /playwright/.cache/

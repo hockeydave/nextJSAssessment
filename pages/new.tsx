@@ -15,7 +15,7 @@ const defaults = {
 const NewVehicle: NextPage = () => {
   return (
     <main>
-      Create a new vehicle
+      <h3>Create a new vehicle</h3>
       <VehicleForm defaults={defaults}/>
     </main>
   )

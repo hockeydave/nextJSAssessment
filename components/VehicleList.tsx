@@ -35,7 +35,7 @@ const vehicleRow = (vehicle: any, i: number) => {
       <Td>{vehicle.nickname}</Td>
       <Td>{getMileageRating(vehicle.mileage)}</Td>
       <Td>{vehicle.registrationId}</Td>
-      <Td><a href={`/${vehicle.id}`} >edit</a></Td>
+      <Td><a href={`/${vehicle.id}`} data-testid={`vehicle-${vehicle.id}`} >edit</a></Td>
     </tr>
   );
 }

@@ -62,7 +62,7 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
       <form method="POST" onSubmit={handleSubmit}>
         <input type="hidden" value={defaults.id} name="id" />
         <label>Vehicle Type</label>
-        <select id="vehicleType" name="vehicleType" onChange={handleTypeChange} value={formState.vehicleType}>
+        <select id="vehicleType" name="vehicleType" data-testid="vehicleType" onChange={handleTypeChange} value={formState.vehicleType}>
           <option value={VEHICLE_TYPE.COUPE}>{VEHICLE_TYPE.COUPE}</option>
           <option value={VEHICLE_TYPE.SEDAN}>{VEHICLE_TYPE.SEDAN}</option>
           <option value={VEHICLE_TYPE.MINI_VAN}>{VEHICLE_TYPE.MINI_VAN}</option>
@@ -70,28 +70,28 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
         </select>
         <div>
           <label htmlFor="nickname">Nickname</label>
-          <input name="nickname" type="text" id="nickname" onChange={handleChange} value={formState.nickname} />
+          <input name="nickname" type="text" id="nickname" data-testid="nickname" onChange={handleChange} value={formState.nickname} />
         </div>
         <div>
           <label htmlFor="mileage">Mileage</label>
-          <input name="mileage" type="number" id="mileage" onChange={handleChange} value={formState.mileage} />
+          <input name="mileage" type="number" id="mileage" data-testid="mileage" onChange={handleChange} value={formState.mileage} />
         </div>
         { formState.vehicleType !== VEHICLE_TYPE.MOTORCYCLE &&
         <div>
           <label htmlFor="wheels">Wheels</label>
-          <input name="wheels" type="number" id="wheels" onChange={handleChange} value={formState.wheels} />
+          <input name="wheels" type="number" id="wheels" data-testid="wheels" onChange={handleChange} value={formState.wheels} />
         </div>
         }
         { formState.vehicleType === VEHICLE_TYPE.MOTORCYCLE &&
             <div>
               <label htmlFor="wheels">Wheels</label>
-              <input name="wheels" type="number" id="wheels" onChange={handleChange} value={2} />
+              <input name="wheels" type="number" id="wheels" data-testid="wheels" onChange={handleChange} value={2} />
             </div>
         }
         { formState.vehicleType !== VEHICLE_TYPE.MOTORCYCLE &&
           <div>
             <label htmlFor="doors">Doors</label>
-            <input name="doors" type="number" id="doors" onChange={handleChange} value={formState.doors} />
+            <input name="doors" type="number" id="doors" data-testid="doors" onChange={handleChange} value={formState.doors} />
           </div>
         }
         { formState.vehicleType === VEHICLE_TYPE.MINI_VAN  &&
@@ -101,7 +101,7 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
         }
         <div>
           <label htmlFor="engineStatus">Engine Status</label>
-          <select id="engineStatus" name="engineStatus" onChange={handleChange} value={formState.engineStatus}>
+          <select id="engineStatus" name="engineStatus" data-testid="engineStatus" onChange={handleChange} value={formState.engineStatus}>
             <option value={ENGINE_STATUS.WORKS}>{ENGINE_STATUS.WORKS}</option>
             <option value={ENGINE_STATUS.FIXABLE}>{ENGINE_STATUS.FIXABLE}</option>
             <option value={ENGINE_STATUS.JUNK}>{ENGINE_STATUS.JUNK}</option>
@@ -110,7 +110,7 @@ const VehicleForm = ({ defaults }: { defaults: any }) => {
         { formState.vehicleType === VEHICLE_TYPE.MOTORCYCLE &&
           <div>
             <label htmlFor="seatStatus">Seat Status</label>
-            <select id="seatStatus" name="seatStatus" onChange={handleChange} value={formState.seatStatus}>
+            <select id="seatStatus" name="seatStatus" data-testid="seatStatus" onChange={handleChange} value={formState.seatStatus}>
               <option value={SEAT_STATUS.WORKS}>{SEAT_STATUS.WORKS}</option>
               <option value={SEAT_STATUS.FIXABLE}>{SEAT_STATUS.FIXABLE}</option>
               <option value={SEAT_STATUS.JUNK}>{SEAT_STATUS.JUNK}</option>
