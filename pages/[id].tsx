@@ -3,8 +3,11 @@ import VehicleForm from '../components/VehicleForm'
 import * as db from '../lib/fileDatabase';
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  const { id } = context.params;
-  const vehicle = await db.find(id);
+  const {id} = context.params;
+  let vehicle = await db.find(id);
+  if (!vehicle) {
+    vehicle = [];
+  }
   return {
     props: {
       vehicle

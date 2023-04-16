@@ -25,6 +25,7 @@ test('should navigate to the Edit item page', async ({ page, baseURL }) => {
   await page.goto('/')
   // Find an element with the text 'About Page' and click on it
   await page.click('text=edit')
+  //await page.getByRole('link', {name: 'edit'}).click
   // The new URL should be "/" (baseURL is used there)
   await expect(page).toHaveURL(baseURL as string + '/1')
   // The new page should contain a h3 with "Change a vehicle here"

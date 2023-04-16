@@ -1,0 +1,1 @@
+[{"vehicleType":"Motorcycle","nickname":"harley","mileage":"10000","wheels":2,"doors":0,"engineStatus":"Fixable","seatStatus":"Works","id":1,"registrationId":"5b90c30b7b47a379b4e519dadf5e48"},{"vehicleType":"Coupe","nickname":"fiat","mileage":"100000","wheels":4,"doors":"2","engineStatus":"Fixable","seatStatus":"","id":2,"registrationId":"497182302cacf76787b895bbe69fa9"}]
