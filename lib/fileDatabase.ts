@@ -1,49 +1,60 @@
 import vehicleRegistrationService from './vehicleRegistrationService';
 import fs from 'fs';
 
-const fsp = fs.promises;
+import "reflect-metadata";
 
-const FILE_PATH = './data.json';
-//let NEXT_ID = 1;
 
-export async function all() {
-    return _openFile();
-}
+module.exports = class FileDatabase {
 
-export async function create(data: any) {
-    let allData = await _openFile();
-    data.id = allData.length + 1;
-    data.registrationId = await vehicleRegistrationService.registerVehicle(data);
-    await _writeFile(allData.concat(data));
-    return data;
-}
+    fsp = fs.promises;
+    public database_file_path: string = process.env.FILE_DATABASE!;
 
-export async function find(id: number) {
-    const allData = await _openFile();
-    return allData.find((d: { id: number }) => d.id == id);
-}
 
-export async function update(data: any) {
-    const allData = await _openFile();
-    for (let i = 0; i < allData.length; i++) {
-        if (allData[i].id === data.id) {
-            allData[i] = data;
-            break;
+    public async all() {
+        return this._openFile();
+    }
+
+
+    public async create(data: any) {
+        let allData = await this._openFile();
+        data.id = allData.length + 1;
+        data.registrationId = await vehicleRegistrationService.registerVehicle(data);
+        await this._writeFile(allData.concat(data));
+        return data;
+    }
+
+
+
+    public async find(id: number) {
+        const allData = await this._openFile();
+        return allData.find((d: { id: number }) => d.id == id);
+    }
+
+
+    public async update(data: any) {
+        const allData = await this._openFile();
+        for (let i = 0; i < allData.length; i++) {
+            if (allData[i].id === data.id) {
+                allData[i] = data;
+                break;
+            }
+        }
+        await this._writeFile(allData);
+        return data;
+    }
+
+
+    public async _openFile() {
+        const rawData = await this.fsp.readFile(this.database_file_path);
+        if (rawData.length > 0) {
+            return JSON.parse(rawData.toString());
+        } else {
+            return [];
         }
     }
-    await _writeFile(allData);
-    return data;
-}
 
-async function _openFile() {
-    const rawData = await fsp.readFile(FILE_PATH);
-    if (rawData.length > 0) {
-        return JSON.parse(rawData.toString());
-    } else {
-        return [];
+
+    public async _writeFile(json: any) {
+        return this.fsp.writeFile(this.database_file_path, JSON.stringify(json));
     }
-}
-
-function _writeFile(json: any) {
-    return fsp.writeFile(FILE_PATH, JSON.stringify(json));
 }

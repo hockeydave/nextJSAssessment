@@ -1,4 +1,5 @@
-import * as fileDatabase from './fileDatabase';
+
+
 
 
 export enum VEHICLE_TYPE {
@@ -32,6 +33,8 @@ export interface VehicleProps {
 
 export async function create(vehicleData: VehicleProps) {
   try {
+    const FileDatabase = require('./fileDatabase')
+    let fileDatabase = new FileDatabase();
     return fileDatabase.create(vehicleData);
   }
   catch(error) {
@@ -48,6 +51,8 @@ export async function update(vehicleData: VehicleProps) {
     } else {
       vehicleData.seatStatus = "";
     }
+    const FileDatabase = require('./fileDatabase')
+    let fileDatabase = new FileDatabase();
     return fileDatabase.update(vehicleData);
   }
   catch(error) {

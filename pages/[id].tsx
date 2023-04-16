@@ -1,9 +1,11 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import VehicleForm from '../components/VehicleForm'
-import * as db from '../lib/fileDatabase';
+
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const {id} = context.params;
+  const FileDatabase = require('../lib/fileDatabase.ts')
+  let db = new FileDatabase();
   let vehicle = await db.find(id);
   if (!vehicle) {
     vehicle = [];
