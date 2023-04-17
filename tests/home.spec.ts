@@ -7,8 +7,13 @@ test('should navigate to the Home page', async ({ page, baseURL }) => {
   await page.goto('/')
   // Find an element with the text 'Home' and click on it
   await page.click('text=Home')
+
   // The new URL should be "/" (baseURL is used there)
-  await expect(page).toHaveURL(baseURL as string)
+  if(page.context().browser()!.browserType().name().toLowerCase().startsWith("firefox"))
+    await expect(page).toHaveURL(baseURL as string + '/')
+  else
+    await expect(page).toHaveURL(baseURL as string)
+
   // The new page should contain a h1 with "Junkyard Inventory Management"
   await expect(page.locator('h1')).toContainText('Junkyard Inventory Management')
 })

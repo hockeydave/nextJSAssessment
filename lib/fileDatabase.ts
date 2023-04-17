@@ -24,7 +24,6 @@ module.exports = class FileDatabase {
     }
 
 
-
     public async find(id: number) {
         const allData = await this._openFile();
         return allData.find((d: { id: number }) => d.id == id);
